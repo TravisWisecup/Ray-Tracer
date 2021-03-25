@@ -6,16 +6,16 @@ using System.Linq;
 
 public class Vector3
 {
-    double[] v = new double[3];
+    public double[] v = new double[3];
 
-    public static Vector3 Zero = new Vector3(0, 0, 0);
-    public static Vector3 One = new Vector3(1, 1, 1);
-    public static Vector3 positiveX = new Vector3(1, 0, 0);
-    public static Vector3 positiveY = new Vector3(0, 1, 0);
-    public static Vector3 positiveZ = new Vector3(0, 0, 1);
-    public static Vector3 negativeX = new Vector3(-1, 0, 0);
-    public static Vector3 negativeY = new Vector3(0, -1, 0);
-    public static Vector3 negativeZ = new Vector3(0, 0, -1);
+    public static Vector3 Zero { get { return new Vector3(0, 0, 0); } }
+    public static Vector3 One { get { return new Vector3(1, 1, 1); } }
+    public static Vector3 positiveX { get { return new Vector3(1, 0, 0); } }
+    public static Vector3 positiveY { get { return new Vector3(0, 1, 0); } }
+    public static Vector3 positiveZ { get { return new Vector3(0, 0, 1); } }
+    public static Vector3 negativeX { get { return new Vector3(-1, 0, 0); } }
+    public static Vector3 negativeY { get { return new Vector3(0, -1, 0); } }
+    public static Vector3 negativeZ { get { return new Vector3(0, 0, -1); } }
 
     public Vector3(double x, double y, double z)
     {
@@ -23,7 +23,6 @@ public class Vector3
         v[1] = y;
         v[2] = z;
     }
-    private double _x = 0.0;
     public double x { get { return v[0]; } set { v[0] = value; } }
     public double y { get { return v[1]; } set { v[1] = value; } }
     public double z { get { return v[2]; } set { v[2] = value; } }
@@ -37,7 +36,7 @@ public class Vector3
         return new Vector3(this.x, this.y, this.z);
     }
 
-    public Vector3 clone(double x, double y, double z)
+    public static Vector3 clone(double x, double y, double z)
     {
         return new Vector3(x, y, z);
     }
@@ -47,17 +46,20 @@ public class Vector3
         return Math.Sqrt(v.Sum(a => Math.Pow(a, 2)));
     }
 
-    public void normalize()
+    public Vector3 normalize()
     {
         var l = this.length();
 
         v = v.Select(i => i / l).ToArray();
+
+        return this;
     }
 
-    public void normalize(Vector3 v3)
+    public static Vector3 normalize(Vector3 v3)
     {
         var l = v3.length();
         v3.v = v3.v.Select(i => i / l).ToArray();
+        return v3;
     }
 
     public Vector3 scale(double scalar)
@@ -66,21 +68,21 @@ public class Vector3
         return this;
     }
 
-    public Vector3 scale(Vector3 v3, double scalar)
+    public static Vector3 scale(Vector3 v3, double scalar)
     {
         return new Vector3(v3.x, v3.y, v3.z).scale(scalar);
     }
 
     public Vector3 minus(Vector3 other)
     {
-        this.x -= other.x;
-        this.y -= other.y;
-        this.z -= other.z;
+        x -= other.x;
+        y -= other.y;
+        z -= other.z;
 
         return this;
     }
 
-    public Vector3 minus(Vector3 one, Vector3 two)
+    public static Vector3 minus(Vector3 one, Vector3 two)
     {
         Vector3 returnV3 = one.clone().minus(two);
 
@@ -96,7 +98,7 @@ public class Vector3
         return this;
     }
 
-    public Vector3 add(Vector3 one, Vector3 two)
+    public static Vector3 add(Vector3 one, Vector3 two)
     {
         Vector3 returnV3 = one.clone().add(two);
         return returnV3;
@@ -107,7 +109,7 @@ public class Vector3
         return this.x * other.x + this.y * other.y + this.z * other.z;
     }
 
-    public double dot(Vector3 one, Vector3 two)
+    public static double dot(Vector3 one, Vector3 two)
     {
         return one.x * two.x + one.y * two.y + one.z * two.z;
     }
@@ -125,7 +127,7 @@ public class Vector3
         return this;
     }
 
-    public Vector3 cross(Vector3 one, Vector3 two)
+    public static Vector3 cross(Vector3 one, Vector3 two)
     {
         Vector3 v3 = one.clone().cross(two);
         return v3;

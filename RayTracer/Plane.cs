@@ -13,11 +13,11 @@
         this.D = D;
     }
 
-    public Plane fromABCD(double A, double B, double C, double D)
+    public static Plane fromABCD(double A, double B, double C, double D)
     {
         return new Plane(A, B, C, D);
     }
-    public Plane fromABC(double A, double B, double C, Vector3 v3)
+    public static Plane fromABC(double A, double B, double C, Vector3 v3)
     {
         double D = -A * v3.x - B * v3.y - C * v3.z;
         return new Plane(A, B, C, D);
@@ -25,9 +25,14 @@
 
     public Plane fromThreeVectors(Vector3 v1, Vector3 v2, Vector3 v3)
     {
-        Vector3 one = v2.minus(v1);
-        Vector3 two = v3.minus(v1);
-        Vector3 normal = v3.cross(one, two);
-        return fromABC(normal.x, normal.y, normal.z, v1);
+        var deltaOne = Vector3.minus(v2, v1).normalize();
+        var deltaTwo = Vector3.minus(v3, v1).normalize();
+        var cross = Vector3.cross(deltaOne, deltaTwo).normalize();
+
+        var A = cross.x;
+        var B = cross.y;
+        var C = cross.z;
+
+        return fromABC(A, B, C, v1);
     }
 }

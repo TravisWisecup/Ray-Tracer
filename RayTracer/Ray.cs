@@ -2,7 +2,7 @@
 {
     public Vector3 start;
     public Vector3 end;
-    public Vector3 direction { get { Vector3 v3 = new Vector3(0, 0, 0); return v3.minus(this.end, this.start); } set; }
+    public Vector3 direction { get { Vector3 v3 = new Vector3(0, 0, 0); return Vector3.minus(this.end, this.start); }  }
 
     public Ray(Vector3 start, Vector3 end)
     {
@@ -12,14 +12,23 @@
 
     public Ray normalize()
     {
-        Vector3 v3 = new Vector3(0, 0, 0);
-        this.end = v3.add(this.start, this.direction.scale(1 / this.length()));
+        this.end = Vector3.add(this.start, this.direction.scale(1 / this.length()));
         return this;
+    }
+
+    public static Vector3 directionM(Ray ray)
+    {
+        return ray.direction;
     }
 
     public double length()
     {
         return this.direction.length();
+    }
+
+    public static double length(Ray ray)
+    {
+        return ray.length();
     }
 
     public double distanceToPlane(Plane plane)
