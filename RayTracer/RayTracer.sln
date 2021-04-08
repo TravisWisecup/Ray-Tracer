@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RayTracer", "RayTracer.csproj", "{2A3E230A-2A0A-4D75-BAFD-FE526E36BCA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayTester", "..\RayTester\RayTester.csproj", "{4783D7D7-602D-4363-9750-2188FB083AA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RayTester", "..\RayTester\RayTester.csproj", "{4783D7D7-602D-4363-9750-2188FB083AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorGL.Server", "..\BlazorGL\Server\BlazorGL.Server.csproj", "{003A66D5-4B71-4D8B-82CA-7613DCEE56CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorGL.Client", "..\BlazorGL\Client\BlazorGL.Client.csproj", "{5C88051F-CB99-46A3-8056-56ADA7378DE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorGL.Shared", "..\BlazorGL\Shared\BlazorGL.Shared.csproj", "{EDA002F5-4B6E-4AF1-A702-56D13E9B899F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{4783D7D7-602D-4363-9750-2188FB083AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4783D7D7-602D-4363-9750-2188FB083AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4783D7D7-602D-4363-9750-2188FB083AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{003A66D5-4B71-4D8B-82CA-7613DCEE56CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003A66D5-4B71-4D8B-82CA-7613DCEE56CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003A66D5-4B71-4D8B-82CA-7613DCEE56CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003A66D5-4B71-4D8B-82CA-7613DCEE56CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C88051F-CB99-46A3-8056-56ADA7378DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C88051F-CB99-46A3-8056-56ADA7378DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C88051F-CB99-46A3-8056-56ADA7378DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C88051F-CB99-46A3-8056-56ADA7378DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA002F5-4B6E-4AF1-A702-56D13E9B899F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA002F5-4B6E-4AF1-A702-56D13E9B899F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA002F5-4B6E-4AF1-A702-56D13E9B899F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA002F5-4B6E-4AF1-A702-56D13E9B899F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

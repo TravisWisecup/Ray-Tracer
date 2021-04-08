@@ -7,22 +7,75 @@ namespace RayTester
     public class PlaneTest
     {
         [TestMethod]
-        public void from_Test()
+        public void Constructor_Test()
         {
+            var plane = new Plane(1, 2, 3, 4);
 
+            Assert.AreEqual(plane.A, 1);
+            Assert.AreEqual(plane.B, 2);
+            Assert.AreEqual(plane.C, 3);
+            Assert.AreEqual(plane.D, 4);
+        }
+
+        [TestMethod]
+        public void from_Storing_Test()
+        {
+            var plane = Plane.fromABCD(1, 2, 3, 4);
+
+            Assert.AreEqual(plane.A, 1);
+            Assert.AreEqual(plane.B, 2);
+            Assert.AreEqual(plane.C, 3);
+            Assert.AreEqual(plane.D, 4);
+        }
+
+        [TestMethod]
+        public void from_ABC_Test()
+        {
+            var plane = Plane.fromABC(0,1,0, Vector3.Zero);
+
+            Assert.AreEqual(plane.A, 0);
+            Assert.AreEqual(plane.B, 1);
+            Assert.AreEqual(plane.C, 0);
+            Assert.AreEqual(plane.D, 0);
+        }
+
+        [TestMethod]
+        public void from_ABC_Test2()
+        {
+            var plane = Plane.fromABC(0, 1, 0, Vector3.positiveY);
+
+            Assert.AreEqual(plane.A, 0);
+            Assert.AreEqual(plane.B, 1);
+            Assert.AreEqual(plane.C, 0);
+            Assert.AreEqual(plane.D, -1);
+        }
+
+        [TestMethod]
+        public void from_Vectors_Test()
+        {
+            var plane = Plane.fromThreeVectors(Vector3.Zero, Vector3.positiveX, Vector3.positiveY);
+
+            Assert.AreEqual(plane.A, 0);
+            Assert.AreEqual(plane.B, 0);
+            Assert.AreEqual(plane.C, 1);
+            Assert.AreEqual(plane.D, 0);
         }
     }
 
     [TestClass]
     public class RayTest
     {
-        //[TestMethod]
-        //public void Constructor_Test()
-        //{
-        //    var ray = new Ray(Vector3.Zero, Vector3.One);
-        //    Assert.AreEqual(Vector3.Zero, ray.start);
-        //    Assert.AreEqual(Vector3.One, ray.end);
-        //}
+        [TestMethod]
+        public void Constructor_Test()
+        {
+            var ray = new Ray(Vector3.Zero, Vector3.One);
+            Assert.AreEqual(Vector3.Zero.x, ray.start.x);
+            Assert.AreEqual(Vector3.Zero.y, ray.start.y);
+            Assert.AreEqual(Vector3.Zero.z, ray.start.z);
+            Assert.AreEqual(Vector3.One.x, ray.end.x);
+            Assert.AreEqual(Vector3.One.y, ray.end.y);
+            Assert.AreEqual(Vector3.One.z, ray.end.z);
+        }
 
         [TestMethod]
         public void Normalize_Test()

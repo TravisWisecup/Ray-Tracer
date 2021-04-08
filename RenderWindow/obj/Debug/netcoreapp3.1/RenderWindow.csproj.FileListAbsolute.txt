@@ -1,0 +1,4 @@
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RenderWindow\bin\Debug\netcoreapp3.1\RenderWindow.exe
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RenderWindow\obj\Debug\netcoreapp3.1\RenderWindow.csprojAssemblyReference.cache
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RenderWindow\obj\Debug\netcoreapp3.1\RenderWindow.AssemblyInfoInputs.cache
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RenderWindow\obj\Debug\netcoreapp3.1\RenderWindow.AssemblyInfo.cs

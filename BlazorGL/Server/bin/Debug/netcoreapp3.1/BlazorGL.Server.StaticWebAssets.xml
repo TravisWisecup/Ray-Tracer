@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\wwwroot\" />
+  <ContentRoot BasePath="/" Path="J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\bin\Debug\netstandard2.1\wwwroot\" />
+</StaticWebAssets>

@@ -1,0 +1,231 @@
+﻿<html>
+
+<head>
+    <title>Three.js Boilerplate</title>
+</head>
+
+<body onload="updateAll()">
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js"></script> -->
+	<script src="three.min.js"></script>
+	<script type="module" src="../three/index.js"></script>
+	<script type="module" src="../three/assets/OrbitControls.js"></script>
+	<script>
+
+
+
+		class Plane {
+			constructor(p1, p2, p3) {
+				this.vertices = [p1, p2, p3];
+				this.findGradients();
+				this.findOrthogonal();
+				this.findABCD();
+			}
+			findGradients() {
+				this.gradients = [
+					new THREE.Vector3().subVectors(this.vertices[1], this.vertices[0]).normalize(),
+					new THREE.Vector3().subVectors(this.vertices[2], this.vertices[1]).normalize(),
+					new THREE.Vector3().subVectors(this.vertices[0], this.vertices[2]).normalize(),
+				]
+			}
+			findOrthogonal() {
+				this.orthogonal = this.gradients[0].clone().cross(this.gradients[1]).normalize()
+			}
+			findABCD() {
+				this.abc = this.orthogonal
+				this.d = -this.orthogonal.dot(this.vertices[0])
+			}
+			multiply(p) {
+				return this.abc.dot(p) + this.d
+			}
+		}
+
+
+		class Triangle {
+			constructor(one, two, three) {
+				this.vertices = [one, two, three]
+				this.plane = new Plane(one, two, three);
+				return this;
+			}
+		}
+
+		let triangle1 = new Triangle(
+			new THREE.Vector3(0, 0, -5),
+			new THREE.Vector3(5, 0, -5),
+			new THREE.Vector3(0, 5, -6)
+		);
+
+		let triangle2 = new Triangle(
+			new THREE.Vector3(0, 0, -5),
+			new THREE.Vector3(5, 0, -5),
+			new THREE.Vector3(0, 0, -6)
+		);
+
+		let triangle3 = new Triangle(
+			new THREE.Vector3(0, 0, -5),
+			new THREE.Vector3(0, 5, -5),
+			new THREE.Vector3(0, 0, -6)
+		);
+
+		let triangles = [triangle1, triangle2, triangle3];
+		let triangle = triangles[0];
+
+		let p1;
+		let p2;
+		let p3;
+
+		function bootOther(t) {
+
+			//Draw the camera
+			var geometry = new THREE.CylinderGeometry(.1, 1, .9, 4);
+			geometry.rotateY(Math.PI / 4);
+			geometry.rotateX(-Math.PI / 2)
+			var material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
+			var cylinder = new THREE.Mesh(geometry, material);
+			cylinder.name = "camera"
+			cylinder.position.set(0, 0, .45)
+			cylinder.lookAt(new THREE.Vector3(0, 0, 0));
+			scene.add(cylinder);
+
+			//Draw the bounding planes
+			p1 = new Plane(t.vertices[1], t.vertices[0], new THREE.Vector3().addVectors(t.vertices[0], t.plane.orthogonal))
+			p2 = new Plane(t.vertices[2], t.vertices[1], new THREE.Vector3().addVectors(t.vertices[1], t.plane.orthogonal))
+			p3 = new Plane(t.vertices[0], t.vertices[2], new THREE.Vector3().addVectors(t.vertices[2], t.plane.orthogonal))
+
+			let planes = [p1, p2, p3];
+
+			let planesGroup = new THREE.Group();
+			planesGroup.name = "planes"
+			scene.add(planesGroup);
+			for (let plane of planes) {
+				let p = drawPlane(plane, 10, false);
+				planesGroup.add(p);
+			}
+
+		}
+		bootOther(triangle)
+
+		function inTriangle(p, t) {
+			let one = p1.multiply(p);
+			let two = p2.multiply(p);
+			let three = p3.multiply(p);
+
+			return one >= 0 && two >= 0 && three > 0;
+		}
+
+		drawTriangle(triangle);
+
+		function drawTriangle(t) {
+			let p = drawPlane(t.plane, 50, true);
+			p.name = "plane";
+			scene.add(p);
+
+			let colors = [
+				0xff0000,
+				0x00ff00,
+				0x0000ff,
+			]
+			let spheresGroup = new THREE.Group();
+			spheresGroup.name = "vertices"
+			scene.add(spheresGroup);
+
+			let gradientsGroup = new THREE.Group();
+			gradientsGroup.name = "gradients"
+			scene.add(gradientsGroup);
+
+			let normalsGroup = new THREE.Group();
+			normalsGroup.name = "normals"
+			scene.add(normalsGroup);
+
+			for (let i = 0; i < 3; i++) {
+				//Draw the three vertices that define the geometry
+				geo = new THREE.SphereGeometry(.1, 8, 8);
+				mat = new THREE.MeshPhongMaterial({ color: colors[i] })
+				let sphere = new THREE.Mesh(geo, mat);
+				sphere.castShadow = true;
+				sphere.position.set(t.vertices[i].x, t.vertices[i].y, t.vertices[i].z);
+
+				spheresGroup.add(sphere);
+
+				gradientsGroup.add(new THREE.ArrowHelper(t.plane.gradients[i], t.plane.vertices[i], 1, 0xffff00));
+				normalsGroup.add(new THREE.ArrowHelper(t.plane.orthogonal, t.plane.vertices[i], 1, 0x00ffff));
+			}
+
+			//Draw a grid on the plane
+			let offset = 10;
+			let space = .5;
+
+			let pointsGroup = new THREE.Group();
+			pointsGroup.name = "points";
+			scene.add(pointsGroup);
+			for (let x = -offset; x <= offset; x += .5) {
+				for (let y = -offset; y <= offset; y += .5) {
+
+					let up = new THREE.Vector3(0, 1, 0);
+					if (t.plane.orthogonal.dot(up) > .5) {
+						up = new THREE.Vector3(1, 0, 0);
+						if (t.plane.orthogonal.dot(up) > .5)
+							up = new THREE.Vector3(0, 0, 1);
+					}
+					let xDirection = new THREE.Vector3().crossVectors(t.plane.orthogonal, up)
+					let yDirection = new THREE.Vector3().crossVectors(t.plane.orthogonal, xDirection)
+
+
+					let place = new THREE
+						.Vector3()
+						.add(t.vertices[0], xDirection.clone().multiplyScalar(x))
+						.add(yDirection.clone().multiplyScalar(y))
+
+					geo = new THREE.SphereGeometry(.05, 8, 8);
+					mat = new THREE.MeshPhongMaterial({ color: 0x000000 })
+					if (inTriangle(place, t)) {
+						mat = new THREE.MeshPhongMaterial({ color: 0xffff00 })
+					}
+					let sphere = new THREE.Mesh(geo, mat);
+
+					sphere.position.set(place.x, place.y, place.z);
+					pointsGroup.add(sphere);
+				}
+			}
+		}
+
+		function drawPlane(p, width, filled) {
+			var geo = new THREE.PlaneGeometry(width, width, 10, 10);
+			var mat = new THREE.MeshPhongMaterial({ color: 0xaaaaff, side: THREE.DoubleSide, wireframe: !filled });
+			var plane = new THREE.Mesh(geo, mat);
+			plane.position.set(0, 0, 0)
+			plane.lookAt(p.abc)
+			plane.position.x -= p.abc.x * p.d;
+			plane.position.y -= p.abc.y * p.d;
+			plane.position.z -= p.abc.z * p.d;
+			plane.castShadow = false;
+			plane.receiveShadow = true;
+			return plane;
+		}
+		function updateAll() {
+
+			let names = ['camera', 'plane', 'vertices', 'gradients', 'normals', 'planes', 'points'];
+			for (let i = 0; i < names.length; i++) {
+				let name = names[i];
+				let element = document.getElementById(name + "CheckBox");
+
+				scene.getObjectByName(name).visible = element.checked;//ok
+			}
+
+
+		}
+
+	</script>
+
+	<div style="position:absolute; left:0; top:0;width:200px;background-color:gray">
+		<div><input type="checkbox" onclick="updateAll()" id="cameraCheckBox">Show Camera</div>
+		<div><input type="checkbox" onclick="updateAll()" id="planeCheckBox">Show Plane</div>
+		<div><input type="checkbox" onclick="updateAll()" id="verticesCheckBox">Show Vertices</div>
+		<div><input type="checkbox" onclick="updateAll()" id="gradientsCheckBox">Show Gradients</div>
+		<div><input type="checkbox" onclick="updateAll()" id="normalsCheckBox">Show Normals</div>
+		<div><input type="checkbox" onclick="updateAll()" id="planesCheckBox">Show Planes</div>
+		<div><input type="checkbox" onclick="updateAll()" id="pointsCheckBox">Show Points</div>
+	</div>
+
+</body>
+
+</html>

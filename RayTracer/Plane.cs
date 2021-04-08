@@ -23,7 +23,7 @@
         return new Plane(A, B, C, D);
     }
 
-    public Plane fromThreeVectors(Vector3 v1, Vector3 v2, Vector3 v3)
+    public static Plane fromThreeVectors(Vector3 v1, Vector3 v2, Vector3 v3)
     {
         var deltaOne = Vector3.minus(v2, v1).normalize();
         var deltaTwo = Vector3.minus(v3, v1).normalize();

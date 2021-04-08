@@ -20,6 +20,16 @@ J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debu
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Compute.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Core.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Graphics.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Input.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Mathematics.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.OpenAL.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Windowing.Common.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Windowing.Desktop.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\OpenTK.Windowing.GraphicsLibraryFramework.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -85,6 +95,10 @@ J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debu
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libglfw.so.3.3
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libglfw.3.dylib
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\glfw3.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\glfw3.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\RayTracer.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\bin\Debug\netcoreapp3.1\RayTracer.pdb
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\RayTester\obj\Debug\netcoreapp3.1\RayTester.csprojAssemblyReference.cache

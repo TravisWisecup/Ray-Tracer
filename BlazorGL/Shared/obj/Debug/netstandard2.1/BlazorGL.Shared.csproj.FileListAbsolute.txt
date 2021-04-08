@@ -1,0 +1,9 @@
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\bin\Debug\netstandard2.1\BlazorGL.Shared.deps.json
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\bin\Debug\netstandard2.1\BlazorGL.Shared.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\bin\Debug\netstandard2.1\BlazorGL.Shared.pdb
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\obj\Debug\netstandard2.1\BlazorGL.Shared.AssemblyInfoInputs.cache
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\obj\Debug\netstandard2.1\BlazorGL.Shared.AssemblyInfo.cs
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\obj\Debug\netstandard2.1\BlazorGL.Shared.csproj.CoreCompileInputs.cache
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\obj\Debug\netstandard2.1\BlazorGL.Shared.dll
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\obj\Debug\netstandard2.1\BlazorGL.Shared.pdb
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Shared\obj\Debug\netstandard2.1\BlazorGL.Shared.csprojAssemblyReference.cache

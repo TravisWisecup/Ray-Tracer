@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>BlazorGL</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <app>Loading...</app>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.server.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/grided/canvas.js"></script>
+    <script type="module" src="js/ThreeJSFunctions.js"></script>
+    <script type="module" src="three/assets/OrbitControls.js"></script>
+    <script type="module" src="three/index.js"></script>
+
+    <script>
+
+        const x = 0;
+        const y = 1;
+
+
+        let t1 = [
+            [0, 0],
+            [0, 1],
+            [1, 0],
+        ]
+
+        let t1ReverseWinding = [
+            [0, 0],
+            [1, 0],
+            [0, 1],
+        ]
+
+        let t2 = [
+            [-2.3, -1],
+            [5.5, 5],
+            [6, -2]
+        ]
+
+
+        let triangles = [t1, t1ReverseWinding, t2];
+
+        let triangle = triangles[2]
+        let points = [
+            [.4, .4],
+            [-.1, .5],
+            [.5, -.1],
+        ]
+
+        function addPoints(size, offset) {
+            for (let x = -size; x <= size; x += offset) {
+                for (let y = -size; y <= size; y += offset) {
+                    points.push([x, y]);
+                }
+            }
+        }
+
+        addPoints(10, .5);
+
+        const minus = (one, two) => [one[x] - two[x], one[y] - two[y]];
+        const minusNormalized = (one, two) => normalize([one[x] - two[x], one[y] - two[y]])
+        const normalize = vector => [vector[x] / length(vector), vector[y] / length(vector)]
+        const length = vector => Math.sqrt(vector[x] ** 2 + vector[y] ** 2);
+        const orthogonal = vector => [vector[y], -vector[x]]
+        const dot = (one, two) => one[x] * two[x] + one[y] * two[y]
+        const scale = (vector, scaler) => [vector[x] * scaler, vector[y] * scaler]
+        const getC = (point, orthogonal) => -1 * dot(point, orthogonal)
+
+
+
+        function isInTriangle(point) {
+            let v1 = minusNormalized(triangle[1], triangle[0])
+            let v2 = minusNormalized(triangle[2], triangle[1])
+            let v3 = minusNormalized(triangle[0], triangle[2])
+
+            let orthogonal1 = orthogonal(v1);
+            let orthogonal2 = orthogonal(v2);
+            let orthogonal3 = orthogonal(v3);
+
+            let c1 = getC(triangle[0], orthogonal1)
+            let c2 = getC(triangle[1], orthogonal2)
+            let c3 = getC(triangle[2], orthogonal3)
+
+            let offset1 = dot(point, orthogonal1) + c1;
+            let offset2 = dot(point, orthogonal2) + c2
+            let offset3 = dot(point, orthogonal3) + c3
+
+            return offset1 >= 0 && offset2 >= 0 && offset3 >= 0;
+        }
+
+
+        function customBoot() {
+            cameraZoom = 100;
+            options.cameraZoomMin = 1000;
+        }
+
+        function customUpdate() {
+
+        }
+
+        function customDraw(ctx) {
+            ctx.strokeStyle = "blue"
+            ctx.beginPath()
+            ctx.moveTo(...triangle[0]);
+            ctx.lineTo(...triangle[1]);
+            ctx.lineTo(...triangle[2]);
+            ctx.closePath();
+            ctx.stroke()
+
+            for (let point of points) {
+                ctx.fillStyle = "orange"
+                if (!isInTriangle(point))
+                    ctx.fillStyle = "gray"
+                ctx.beginPath()
+                ctx.arc(...point, .1, 0, 2 * Math.PI)
+                ctx.fill()
+            }
+        }
+    </script>
+
+</body>
+
+</html>
