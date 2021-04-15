@@ -335,9 +335,6 @@ J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\ob
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\staticwebassets\BlazorGL.Client.StaticWebAssets.xml
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\BlazorGL.Client.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\BlazorGL.Client.pdb
-J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\integrity\6bPbuaNzndYn6DTkzW7l8ULnRqs3yfJBuNSLVUwmY7Q=.hash
-J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\integrity\v69uqY7fL8tY6_Qye6c_S-MEHuaG29qdY6U8hEppoO8=.hash
-J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\integrity\F97k_qoW5LdExWVmDGOZaqlmZtjR3tFHHGcqAuQbNv0=.hash
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\bin\Debug\netstandard2.1\Microsoft.CSharp.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\bin\Debug\netstandard2.1\Newtonsoft.Json.dll
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\bin\Debug\netstandard2.1\System.AppContext.dll
@@ -380,3 +377,6 @@ J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\ob
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\Razor\Shared\MainLayout.razor.g.cs
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\Razor\Shared\NavMenu.razor.g.cs
 J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\Razor\_Imports.razor.g.cs
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\integrity\6bPbuaNzndYn6DTkzW7l8ULnRqs3yfJBuNSLVUwmY7Q=.hash
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\integrity\v69uqY7fL8tY6_Qye6c_S-MEHuaG29qdY6U8hEppoO8=.hash
+J:\Spring 2021 Classes\CSCI 4620 Computer Graphics\Ray Tracer\BlazorGL\Client\obj\Debug\netstandard2.1\integrity\F97k_qoW5LdExWVmDGOZaqlmZtjR3tFHHGcqAuQbNv0=.hash

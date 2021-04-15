@@ -24,6 +24,7 @@
   <ItemGroup>
     <None Include="wwwroot\models\stormtrooper.dae" />
     <None Include="wwwroot\models\Stormtrooper_D.jpg" />
+    <None Include="wwwroot\three\tracer.html" />
   </ItemGroup>
 
 </Project>

@@ -1,26 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazorGL</title>
-    <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
+    <title>Ray Tracer 2.0</title>
 </head>
 
 <body>
-    <app>Loading...</app>
-
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
-    <script src="_framework/blazor.webassembly.js"></script>
-    <script src="_framework/blazor.server.js"></script>
-
     <script>
         const vector3 = (x, y, z) => { return { x, y, z }; }
         const dot = (v1, v2) => v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
@@ -46,7 +31,7 @@
         //Lights
 
         //Phong: ambient + difffuse + specular
-        let ambient = vector3(50, 50, 50)
+        let ambient = vector3(50,50,50)
         //This is the direction to the sun, not from the sun
         let directionalLight = normalize(vector3(0, 0, 1))
 
@@ -54,8 +39,8 @@
         function simpleShader(worldSpace, normal, uvs) {
             let angle = dot(normal, directionalLight);
             let diffuse = scale(vector3(255, 0, 0), angle);
-            if (angle < 0) {
-                diffuse = vector3(0, 0, 0)
+            if(angle < 0){
+                diffuse = vector3(0,0,0)
             }
             return clamp(add(ambient, diffuse));
             //return add(ambient, diffuse);
@@ -65,8 +50,8 @@
         function simpleShader2(worldSpace, normal, uvs) {
             let angle = dot(normal, directionalLight);
             let diffuse = scale(vector3(255, 255, 0), angle);
-            if (angle < 0) {
-                diffuse = vector3(0, 0, 0)
+            if(angle < 0){
+                diffuse = vector3(0,0,0)
             }
             return clamp(add(ambient, diffuse));
         }
@@ -166,7 +151,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>
